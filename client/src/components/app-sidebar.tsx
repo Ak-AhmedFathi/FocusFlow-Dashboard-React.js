@@ -5,6 +5,7 @@ import {
   Target,
   Timer,
   Zap,
+  Settings,
 } from "lucide-react";
 import {
   Sidebar,
@@ -39,6 +40,11 @@ const navigationItems = [
     title: "Pomodoro",
     url: "/pomodoro",
     icon: Timer,
+  },
+  {
+    title: "Settings",
+    url: "/settings",
+    icon: Settings,
   },
 ];
 
