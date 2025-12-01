@@ -1,0 +1,73 @@
+I want to build a FocusFlow – Productivity Dashboard web app using Next.js. The app should be modern, responsive, and fully functional. Please generate a detailed implementation plan including all tech stack setup, folder structure, components, pages, styling, and features. Use TypeScript, TailwindCSS, and React hooks. The app should also be optimized for performance and scalability.
+
+Tech Stack Requirements:
+
+Next.js (latest version, with TypeScript)
+
+TailwindCSS for styling
+
+React hooks (useState, useEffect, useContext)
+
+Optional: React Query for state/data management
+
+Optional: localStorage or IndexedDB for saving user data
+
+Optional: Chart.js or Recharts for visualizing habit/task progress
+
+Project Structure:
+
+pages/ → Home, Dashboard, Tasks, Habits, Profile, Settings
+
+components/ → Navbar, Sidebar, TaskCard, HabitTracker, PomodoroTimer, ProgressChart, Modal, Button
+
+context/ → Global context for user data (tasks, habits, timer)
+
+hooks/ → Custom hooks for tasks, habits, and Pomodoro timer
+
+utils/ → Helper functions (date format, progress calculation, localStorage helpers)
+
+Features:
+
+Dashboard Overview – show daily tasks, habits, and Pomodoro progress
+
+Tasks – add, edit, delete, mark complete, sort by priority
+
+Habits Tracker – add habits, track daily completion, weekly/monthly charts
+
+Pomodoro Timer – 25/5 minute timer with start/pause/reset, notifications
+
+Dark/Light Mode – toggle theme across the app
+
+User Data Persistence – save tasks, habits, and timer state in localStorage
+
+Responsive Design – works on mobile, tablet, and desktop
+
+Optional Animations – smooth transitions and hover effects
+
+UI Guidelines:
+
+Clean, minimalistic, modern design
+
+Primary colors: Soft dark shades + accent color (e.g., orange or teal)
+
+Use cards for tasks and habits, circular progress bars for Pomodoro and habit streaks
+
+Sidebar for navigation, top Navbar with profile/settings
+
+Deliverables Requested:
+
+Complete Next.js project code in TypeScript
+
+TailwindCSS configuration and responsive layout
+
+Functional components for all features
+
+Pomodoro timer logic with React hooks
+
+Example task & habit data preloaded
+
+Charts for habit and task progress
+
+Optional: Export data as JSON file
+
+Please provide the project step-by-step, including folder structure, example files with code snippets, and instructions to run locally. Include comments in code explaining each part for better understanding.
