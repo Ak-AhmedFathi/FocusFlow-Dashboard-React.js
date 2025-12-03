@@ -12,7 +12,7 @@ Perfect for productivity apps, project management, and internal business dashboa
 
 ## 🌐 Live Demo
 
-Check the live demo here (if available):
+Check the live demo here (Available Soon):
 [FocusFlow Dashboard Demo](https://focusflow-dashboard.vercel.app/)
 
 ---
