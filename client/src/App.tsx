@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -27,6 +27,8 @@ import Settings from "@/pages/settings";
 import Landing from "@/pages/landing";
 import AuthPage from "@/pages/auth";
 import NotFound from "@/pages/not-found";
+import { useEffect } from "react";
+
 
 function UserMenu() {
   const { user } = useAuth();
@@ -125,8 +127,40 @@ function AuthenticatedApp() {
   );
 }
 
+// function AppContent() {
+//   const { isAuthenticated, isLoading } = useAuth();
+
+//   if (isLoading) {
+//     return (
+//       <div className="min-h-screen flex items-center justify-center">
+//         <Loader2 className="h-8 w-8 animate-spin text-primary" />
+//       </div>
+//     );
+//   }
+
+//   if (!isAuthenticated) {
+//     // When unauthenticated, allow public client-side routes like /auth
+//     return (
+//       <Switch>
+//         <Route path="/signIn" component={AuthPage} />
+//         <Route path="/" component={Landing} />
+//         <Route path="/*" component={NotFound} />
+//       </Switch>
+//     );
+//   }
+
+//   return <AuthenticatedApp />;
+// }
+
 function AppContent() {
   const { isAuthenticated, isLoading } = useAuth();
+  const [, navigate] = useLocation();
+
+  useEffect(() => {
+    if (!isLoading && isAuthenticated) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [isLoading, isAuthenticated, navigate]);
 
   if (isLoading) {
     return (
@@ -136,19 +170,20 @@ function AppContent() {
     );
   }
 
-  if (!isAuthenticated) {
-    // When unauthenticated, allow public client-side routes like /auth
-    return (
-      <Switch>
-        <Route path="/signIn" component={AuthPage} />
-        <Route path="/" component={Landing} />
-        <Route path="/*" component={NotFound} />
-      </Switch>
-    );
+  if (isAuthenticated) {
+    return <AuthenticatedApp />;
   }
 
-  return <AuthenticatedApp />;
+  return (
+    <Switch>
+      <Route path="/" component={Landing} />
+      <Route path="/signIn" component={AuthPage} />
+      <Route path="/*" component={NotFound} />
+    </Switch>
+  );
 }
+
+
 
 function App() {
   return (
